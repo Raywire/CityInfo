@@ -26,6 +26,8 @@ namespace CityInfo.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePages();
+
             app.UseMvc();
             /* Convention-based Routing - Not advised for API's but alright for MVC with html returning views
              app.UseMvc(config => {
