@@ -27,6 +27,15 @@ namespace CityInfo.API
             }
 
             app.UseMvc();
+            /* Convention-based Routing - Not advised for API's but alright for MVC with html returning views
+             app.UseMvc(config => {
+                config.MapRoute(
+                    name: "Default",
+                    template: "{controller}/{action}/{id?}",
+                    default: new { controller="Home", action="Index" }
+                ); });
+            */
+            // For APIs use attribute-based Routing
         }
     }
 }
