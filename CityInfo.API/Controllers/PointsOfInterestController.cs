@@ -2,6 +2,7 @@
 using System.Linq;
 using CityInfo.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CityInfo.API.Controllers
 {
@@ -51,10 +52,19 @@ namespace CityInfo.API.Controllers
             //{
             //    return BadRequest();
             //}
-            //if(!ModelState.IsValid)
-            //{
-            //    return BadRequest();
-            //}
+
+            // You can use FluentValidation library
+            if(pointOfInterest.Description == pointOfInterest.Name)
+            {
+                ModelState.AddModelError(
+                    "Description",
+                    "The provided description should be different from the name.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
 
