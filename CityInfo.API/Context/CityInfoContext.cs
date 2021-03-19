@@ -11,7 +11,7 @@ namespace CityInfo.API.Context
 
         public CityInfoContext(DbContextOptions<CityInfoContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
